@@ -116,3 +116,14 @@ detalleTorneo.clasificacion.forEach(function (equipo) {
     `;
 
 });
+
+detalleTorneo.premios.forEach(function (premio) {
+
+    listaPremios.innerHTML += `
+        <article class="tarjeta-premio">
+            <h3>${premio.posicion}° lugar</h3>
+            <p>Premio: ${premio.premio}</p>
+        </article>
+    `;
+
+});
