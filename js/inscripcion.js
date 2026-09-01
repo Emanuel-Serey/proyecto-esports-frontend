@@ -144,3 +144,40 @@ formularioInscripcion.addEventListener("submit", function (event) {
 
         participante = usuarioActual.apodo;
     }
+
+    const yaInscrito = inscripciones.some(function (inscripcion) {
+        return (
+            inscripcion.torneo === torneoSeleccionado.nombre &&
+            inscripcion.participante === participante
+        );
+    });
+
+    if (yaInscrito) {
+
+        if (tipoParticipante.value === "equipo") {
+            mensajeInscripcion.textContent =
+                "Este equipo ya se encuentra inscrito en este torneo.";
+        } else {
+            mensajeInscripcion.textContent =
+                "Este jugador ya se encuentra inscrito en este torneo.";
+        }
+
+        return;
+    }
+
+    inscripciones.push({
+        torneo: torneoSeleccionado.nombre,
+        participante: participante,
+        tipo: tipoParticipante.value
+    });
+
+    mensajeInscripcion.textContent = "";
+
+    resumenInscripcion.innerHTML = `
+    <h3>Inscripción realizada correctamente</h3>
+    <p>Torneo: ${torneoSeleccionado.nombre}</p>
+    <p>Participante: ${participante}</p>
+    <p>Modalidad: ${torneoSeleccionado.modalidad}</p>
+    `;
+
+});
