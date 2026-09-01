@@ -88,3 +88,48 @@ function mostrarIntegrantes() {
     });
 
 }
+// AGREGAR INTEGRANTE
+
+botonAgregar.addEventListener("click", function () {
+
+    const jugador = nuevoIntegrante.value;
+    const rol = rolIntegrante.value;
+
+
+    if (jugador === "") {
+        mensajeEquipo.textContent =
+            "Debes seleccionar un jugador.";
+        return;
+    }
+
+
+    if (rol === "") {
+        mensajeEquipo.textContent =
+            "Debes seleccionar un rol.";
+        return;
+    }
+
+
+    const jugadorRepetido = integrantes.some(function (integrante) {
+        return integrante.jugador === jugador;
+    });
+
+
+    if (jugadorRepetido) {
+        mensajeEquipo.textContent =
+            "Este jugador ya pertenece al equipo.";
+        return;
+    }
+
+
+    integrantes.push({
+        jugador: jugador,
+        rol: rol
+    });
+
+
+    mensajeEquipo.textContent = "";
+
+    mostrarIntegrantes();
+
+});
