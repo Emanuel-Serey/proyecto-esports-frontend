@@ -41,3 +41,45 @@ perfilJugador.equipos.forEach(function (equipo) {
     `;
 
 });
+
+// HISTORIAL DE TORNEOS
+
+perfilJugador.historialTorneos.forEach(function (torneo) {
+
+    listaHistorial.innerHTML += `
+        <article class="tarjeta-torneo">
+            <h3>${torneo.torneo}</h3>
+            <p>Juego: ${torneo.juego}</p>
+            <p>Resultado: ${torneo.resultado}</p>
+        </article>
+    `;
+
+});
+
+
+// ESTADÍSTICAS
+
+datosEstadisticas.innerHTML = `
+    <p>Victorias: ${perfilJugador.estadisticas.victorias}</p>
+    <p>Derrotas: ${perfilJugador.estadisticas.derrotas}</p>
+`;
+
+
+// SANCIONES
+
+if (perfilJugador.sanciones.length === 0) {
+
+    listaSanciones.innerHTML =
+        "<p>Sin sanciones vigentes.</p>";
+
+} else {
+
+    perfilJugador.sanciones.forEach(function (sancion) {
+
+        listaSanciones.innerHTML += `
+            <p>${sancion}</p>
+        `;
+
+    });
+
+}
