@@ -33,6 +33,60 @@ const torneos = [
     }
 ];
 
+const equiposUsuario = [
+    {
+        nombre: "Shadow Wolves",
+        integrantes: 5,
+        sancionVigente: false
+    },
+    {
+        nombre: "Phoenix Squad",
+        integrantes: 4,
+        sancionVigente: false
+    }
+];
+
+const equiposExistentes = [
+    "Shadow Wolves",
+    "Phoenix Squad"
+];
+
+const usuarioActual = {
+    id: 1,
+    nombre: "Juan Pérez",
+    apodo: "Pepito123",
+    correo: "juan.perez@email.com",
+    sancionVigente: false
+};
+
+const perfilJugador = {
+    equipos: [
+        "Nova Titans"
+    ],
+
+    historialTorneos: [
+        {
+            torneo: "Arena Masters",
+            juego: "Valorant",
+            resultado: "3° lugar"
+        },
+        {
+            torneo: "Legends Cup",
+            juego: "League of Legends",
+            resultado: "Participación"
+        }
+    ],
+
+    estadisticas: {
+        victorias: 12,
+        derrotas: 5
+    },
+
+    sanciones: []
+};
+
+const inscripciones = [];
+
 const detalleTorneo = {
     nombre: "Legends Cup",
     juego: "League of Legends",
@@ -157,30 +211,3 @@ const detalleTorneo = {
     ]
 };
 
-const equiposUsuario = [
-    {
-        nombre: "Shadow Wolves",
-        integrantes: 5,
-        sancionVigente: false
-    },
-    {
-        nombre: "Phoenix Squad",
-        integrantes: 4,
-        sancionVigente: false
-    }
-];
-
-const usuarioActual = {
-    id: 1,
-    nombre: "Juan Pérez",
-    apodo: "Pepito123",
-    correo: "juan.perez@email.com",
-    sancionVigente: false
-};
-
-const inscripciones = [];
-
-const equiposExistentes = [
-    "Shadow Wolves",
-    "Phoenix Squad"
-];
