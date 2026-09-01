@@ -13,3 +13,21 @@ torneos.forEach(function(torneo) {
     `;
 
 });
+
+const listaCierres = document.getElementById("lista-cierres");
+
+torneos.forEach(function(torneo) {
+
+    if (torneo.estado === "Abierto") {
+
+        listaCierres.innerHTML += `
+            <article class="tarjeta-cierre">
+                <h3>${torneo.nombre}</h3>
+                <p>Juego: ${torneo.juego}</p>
+                <p>Cierre de inscripción: ${torneo.cierreInscripcion}</p>
+            </article>
+        `;
+
+    }
+
+});
