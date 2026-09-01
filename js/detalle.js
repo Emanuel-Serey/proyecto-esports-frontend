@@ -76,3 +76,43 @@ detalleTorneo.partidas.forEach(function (partida) {
     `;
 
 });
+
+tablaClasificacion.innerHTML = `
+    <table>
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PP</th>
+                <th>DM</th>
+                <th>Puntos</th>
+            </tr>
+        </thead>
+
+        <tbody id="cuerpo-clasificacion">
+        </tbody>
+    </table>
+`;
+
+const cuerpoClasificacion =
+    document.getElementById("cuerpo-clasificacion");
+
+detalleTorneo.clasificacion.forEach(function (equipo) {
+
+    cuerpoClasificacion.innerHTML += `
+        <tr>
+            <td>${equipo.posicion}</td>
+            <td>${equipo.equipo}</td>
+            <td>${equipo.jugados}</td>
+            <td>${equipo.ganados}</td>
+            <td>${equipo.perdidos}</td>
+            <td>
+                ${equipo.diferenciaMapas > 0 ? "+" + equipo.diferenciaMapas : equipo.diferenciaMapas}
+            </td>
+            <td>${equipo.puntos}</td>
+        </tr>
+    `;
+
+});
