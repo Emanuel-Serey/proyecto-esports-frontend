@@ -133,3 +133,113 @@ botonAgregar.addEventListener("click", function () {
     mostrarIntegrantes();
 
 });
+// CREAR EQUIPO
+
+formularioEquipo.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    mensajeEquipo.textContent = "";
+
+
+    const nombreEquipo =
+        document.getElementById("nombre-equipo").value.trim();
+
+    const juegoEquipo =
+        document.getElementById("juego-equipo").value;
+
+    const capitanEquipo =
+        document.getElementById("capitan-equipo").value;
+
+
+    // Validar nombre
+
+    if (nombreEquipo === "") {
+        mensajeEquipo.textContent =
+            "Debes ingresar un nombre para el equipo.";
+        return;
+    }
+
+
+    // Validar juego
+
+    if (juegoEquipo === "") {
+        mensajeEquipo.textContent =
+            "Debes seleccionar un juego principal.";
+        return;
+    }
+
+
+    // Validar capitán
+
+    if (capitanEquipo === "") {
+        mensajeEquipo.textContent =
+            "Debes seleccionar un capitán.";
+        return;
+    }
+
+
+    // Validar nombre repetido
+
+    const nombreRepetido = equiposExistentes.some(function (nombre) {
+
+        return nombre.toLowerCase() ===
+            nombreEquipo.toLowerCase();
+
+    });
+
+
+    if (nombreRepetido) {
+        mensajeEquipo.textContent =
+            "Ya existe un equipo con este nombre.";
+        return;
+    }
+
+
+    // Si pasa todas las validaciones
+
+    equipoActual = {
+        nombre: nombreEquipo,
+        juego: juegoEquipo,
+        capitan: capitanEquipo
+    };
+
+    equiposExistentes.push(nombreEquipo);
+
+
+    // El capitán se agrega automáticamente al equipo
+
+    integrantes.push({
+        jugador: capitanEquipo,
+        rol: "Capitán"
+    });
+
+
+    tituloIntegrantes.textContent =
+        "Integrantes de " + equipoActual.nombre;
+
+
+    // Mostrar la sección de integrantes
+
+    seccionIntegrantes.hidden = false;
+
+
+    // Mostrar al capitán en la lista
+
+    mostrarIntegrantes();
+
+
+    mensajeEquipo.textContent =
+        "Equipo creado correctamente.";
+
+
+    // Bloquear creación del equipo
+
+    botonCrearEquipo.disabled = true;
+    botonCrearEquipo.textContent = "Equipo creado";
+
+    document.getElementById("nombre-equipo").disabled = true;
+    document.getElementById("juego-equipo").disabled = true;
+    document.getElementById("capitan-equipo").disabled = true;
+
+});
