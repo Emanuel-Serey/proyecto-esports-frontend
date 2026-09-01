@@ -180,3 +180,7 @@ const usuarioActual = {
 
 const inscripciones = [];
 
+const equiposExistentes = [
+    "Shadow Wolves",
+    "Phoenix Squad"
+];
