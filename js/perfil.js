@@ -83,3 +83,54 @@ if (perfilJugador.sanciones.length === 0) {
     });
 
 }
+
+// CAMBIAR APODO
+
+formularioApodo.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const apodo = nuevoApodo.value.trim();
+
+    mensajeApodo.textContent = "";
+
+
+    if (apodo === "") {
+
+        mensajeApodo.textContent =
+            "El apodo es obligatorio.";
+
+        return;
+    }
+
+    if (apodo.length < 3 || apodo.length > 15) {
+
+        mensajeApodo.textContent =
+            "El apodo debe tener entre 3 y 15 caracteres.";
+
+        return;
+    }
+
+    if (apodo.includes(" ")) {
+
+        mensajeApodo.textContent =
+            "El apodo no puede contener espacios.";
+
+        return;
+    }
+
+
+    usuarioActual.apodo = apodo;
+
+
+    datosJugador.innerHTML = `
+        <p>Nombre: ${usuarioActual.nombre}</p>
+        <p>Apodo: ${usuarioActual.apodo}</p>
+        <p>Correo: ${usuarioActual.correo}</p>
+    `;
+
+
+    mensajeApodo.textContent =
+        "Apodo actualizado correctamente.";
+
+});
