@@ -37,3 +37,42 @@ detalleTorneo.participantes.forEach(function (participante) {
     `;
 
 });
+
+detalleTorneo.partidas.forEach(function (partida) {
+
+    let centroPartida;
+
+    if (partida.estado === "Finalizada") {
+        centroPartida = partida.resultado;
+    } else {
+        centroPartida = "VS";
+    }
+
+    listaPartidas.innerHTML += `
+        <article class="tarjeta-partida">
+
+            <div class="encabezado-partida">
+            <h3>${partida.ronda}</h3>
+
+            <div>
+                <span>${detalleTorneo.formato}</span>
+                <span> | ${partida.estado}</span>
+            </div>
+        </div>
+
+            <div class="enfrentamiento">
+                <strong>${partida.equipo1}</strong>
+
+                <span class="resultado">
+                    ${centroPartida}
+                </span>
+
+                <strong>${partida.equipo2}</strong>
+            </div>
+
+            <p>Horario: ${partida.horario}</p>
+
+        </article>
+    `;
+
+});
