@@ -157,3 +157,26 @@ const detalleTorneo = {
     ]
 };
 
+const equiposUsuario = [
+    {
+        nombre: "Shadow Wolves",
+        integrantes: 5,
+        sancionVigente: false
+    },
+    {
+        nombre: "Phoenix Squad",
+        integrantes: 4,
+        sancionVigente: false
+    }
+];
+
+const usuarioActual = {
+    id: 1,
+    nombre: "Juan Pérez",
+    apodo: "Pepito123",
+    correo: "juan.perez@email.com",
+    sancionVigente: false
+};
+
+const inscripciones = [];
+
