@@ -37,12 +37,14 @@ const equiposUsuario = [
     {
         nombre: "Shadow Wolves",
         integrantes: 5,
-        sancionVigente: false
+        sancionVigente: false,
+        estado: "Activo"
     },
     {
         nombre: "Phoenix Squad",
         integrantes: 4,
-        sancionVigente: false
+        sancionVigente: false,
+        estado: "Inactivo"
     }
 ];
 

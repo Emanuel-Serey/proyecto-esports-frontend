@@ -109,13 +109,19 @@ formularioInscripcion.addEventListener("submit", function (event) {
         return;
     }
 
-   let participante;
+    let participante;
 
     if (tipoParticipante.value === "equipo") {
 
         const equipo = equiposUsuario.find(function (equipo) {
             return equipo.nombre === equipoSeleccionado;
         });
+
+        if (equipo.estado === "Inactivo") {
+            mensajeInscripcion.textContent =
+                "El equipo no puede inscribirse porque se encuentra inactivo.";
+            return;
+        }
 
         if (
             equipo.integrantes <
