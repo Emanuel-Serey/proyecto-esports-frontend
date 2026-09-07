@@ -7,7 +7,7 @@ const torneos = [
         estado: "Abierto",
         cupoMaximo: 16,
         inscritos: 10,
-        cierreInscripcion: "2026-09-05"
+        cierreInscripcion: "2026-09-10"
     },
 
     {
